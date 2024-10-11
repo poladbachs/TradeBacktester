@@ -1,3 +1,4 @@
+"""Data handler module for loading and processing data."""
 
 from typing import Optional
 
@@ -17,3 +18,14 @@ class DataHandler:
         self.start_date = start_date
         self.end_date = end_date
         self.provider = provider
+
+    def load_data(self) -> pd.DataFrame | dict[str, pd.DataFrame]:
+        """Load equity data"""
+        data = obb.equity.price.historical(
+            symbol=self.symbol,
+            start_date=self.start_date,
+            end_date=self.end_date,
+            provider=self.provider,
+        ).to_df()
+
+        return data
