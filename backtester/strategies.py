@@ -9,3 +9,14 @@ class Strategy:
     def __init__(self, indicators: dict, signal_logic: Any):
         self.indicators = indicators
         self.signal_logic = signal_logic
+
+    def generate_signals(
+        self, data: pd.Dataframe | dict[str, pd.DataFrame]
+    ) -> pd.DataFrame | dict[str, pd.DataFrame]:
+        """Generate trading signals based on the strategy's indicators and signal logic."""
+        if isinstance(data, dict):
+            for _, asset_data in data.items():
+                self._apply_strategy(asset_data)
+        else:
+            self._apply_strategy(data)
+        return data
