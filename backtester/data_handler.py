@@ -28,4 +28,8 @@ class DataHandler:
             provider=self.provider,
         ).to_df()
 
+        if "," in self.symbol:
+            data = data.reset_index().set_index("symbol")
+            return {symbol: data.loc[symbol] for symbol in self.symbol.split(",")}
+
         return data
