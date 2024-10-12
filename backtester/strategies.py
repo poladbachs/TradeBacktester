@@ -20,3 +20,8 @@ class Strategy:
         else:
             self._apply_strategy(data)
         return data
+
+    def _apply_strategy(self, df: pd.DataFrame) -> None:
+        """Apply the strategy to a single dataframe."""
+        for name, indicator in self.indicators.items():
+            df[name] = indicator(df)
