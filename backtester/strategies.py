@@ -25,3 +25,6 @@ class Strategy:
         """Apply the strategy to a single dataframe."""
         for name, indicator in self.indicators.items():
             df[name] = indicator(df)
+
+        df["signal"] = df.apply(lambda row: self.signal_logic(row), axis=1)
+        df["positions"] = df["signal"].diff().fillna(0)
