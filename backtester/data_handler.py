@@ -33,3 +33,6 @@ class DataHandler:
             return {symbol: data.loc[symbol] for symbol in self.symbol.split(",")}
 
         return data
+
+# data = DataHandler("AAPL").load_data()
+# print(data.head())
