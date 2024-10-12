@@ -19,4 +19,8 @@ class Backtester:
         self.assets_data: Dict = {}
         self.portfolio_history: Dict = {}
         self.daily_portfolio_values: List[float] = []
+
+    def calculate_commission(self, trade_value: float) -> float:
+        """Calculate the commission fee for a trade."""
+        return max(trade_value * self.commission_pct, self.commission_fixed)
         
