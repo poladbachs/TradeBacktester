@@ -32,3 +32,8 @@ class Backtester:
             shares_to_buy = (trade_value - commission) / price
             self.assets_data[asset]["positions"] += shares_to_buy
             self.assets_data[asset]["cash"] -= trade_value
+        elif signal < 0 and self.assets_data[asset]["positions"] > 0:
+            trade_value = self.assets_data[asset]["positions"] * price
+            commission = self.calculate_commission(trade_value)
+            self.assets_data[asset]["cash"] += trade_value - commission
+            self.assets_data[asset]["positions"] = 0
