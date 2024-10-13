@@ -47,4 +47,12 @@ class Backtester:
             self.assets_data[asset]["cash"] + self.assets_data[asset]["position_value"]
         )
         self.portfolio_history[asset].append(self.assets_data[asset]["total_value"])
+
+    def backtest(self, data: pd.DataFrame | dict[str, pd.DataFrame]):
+        """Backtest the trading strategy using the provided data."""
+        if isinstance(data, pd.DataFrame):
+            data = {
+                "SINGLE_ASSET": data
+            }
+        
         
