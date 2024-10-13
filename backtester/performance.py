@@ -13,3 +13,9 @@ def calculate_annualized_return(total_return, num_days):
 def calculate_annualized_volatility(daily_returns):
     """Calculate the annualized volatility of the portfolio."""
     return daily_returns.std() * np.sqrt(252)
+
+def calculate_sharpe_ratio(annualized_return, annualized_volatility, risk_free_rate=0):
+    try:
+        return (annualized_return - risk_free_rate) / annualized_volatility
+    except RuntimeError:
+        return np.nan
