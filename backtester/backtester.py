@@ -37,3 +37,10 @@ class Backtester:
             commission = self.calculate_commission(trade_value)
             self.assets_data[asset]["cash"] += trade_value - commission
             self.assets_data[asset]["positions"] = 0
+        
+    def update_portfolio(self, asset: str, price: float) -> None:
+        """Update the portfolio with the latest price."""
+        self.assets_data[asset]["position_value"] = (
+            self.assets_data[asset]["positions"] * price
+        )
+        
