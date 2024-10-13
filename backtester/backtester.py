@@ -78,4 +78,3 @@ class Backtester:
                     ] += self.assets_data[asset]["total_value"]
 
 
-
