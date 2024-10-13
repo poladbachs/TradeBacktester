@@ -55,4 +55,14 @@ class Backtester:
                 "SINGLE_ASSET": data
             }
         
-        
+        for asset in data:
+            self.assets_data[asset] = {
+                "cash": self.initial_capital / len(data),
+                "positions": 0,
+                "position_value": 0,
+                "total_value": 0,
+            }
+            self.portfolio_history[asset] = []
+
+            
+
