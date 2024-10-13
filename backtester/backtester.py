@@ -64,5 +64,14 @@ class Backtester:
             }
             self.portfolio_history[asset] = []
 
-            
+            for date, row in data[asset].iterrows():
+                self.execute_trade(asset, row["signal"], row["close"])
+                self.update_portfolio(asset, row["close"])
+
+                if len(self.daily_portfolio_values) < len(data[asset]):
+                    self.daily_portfolio_values.append(
+                        self.assets_data[asset]["total_value"]
+                    )
+
+
 
