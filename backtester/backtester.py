@@ -72,6 +72,10 @@ class Backtester:
                     self.daily_portfolio_values.append(
                         self.assets_data[asset]["total_value"]
                     )
+                else:
+                    self.daily_portfolio_values[
+                        len(self.portfolio_history[asset]) - 1
+                    ] += self.assets_data[asset]["total_value"]
 
 
 
