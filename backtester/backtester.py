@@ -43,4 +43,8 @@ class Backtester:
         self.assets_data[asset]["position_value"] = (
             self.assets_data[asset]["positions"] * price
         )
+        self.assets_data[asset]["total_value"] = (
+            self.assets_data[asset]["cash"] + self.assets_data[asset]["position_value"]
+        )
+        self.portfolio_history[asset].append(self.assets_data[asset]["total_value"])
         
