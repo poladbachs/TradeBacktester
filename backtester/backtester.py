@@ -24,3 +24,11 @@ class Backtester:
         """Calculate the commission fee for a trade."""
         return max(trade_value * self.commission_pct, self.commission_fixed)
         
+    def execute_trade(self, asset: str, signal: int, price: float) -> None:
+        """Execute a trade based on the signal and price."""
+        if signal > 0 and self.assets_data[asset]["cash"] > 0:
+            trade_value = self.assets_data[asset]["cash"]
+            commission = self.calculate_commission(trade_value)
+            shares_to_buy = (trade_value - commission) / price
+            self.assets_data[asset]["positions"] += shares_to_buy
+            self.assets_data[asset]["cash"] -= trade_value
