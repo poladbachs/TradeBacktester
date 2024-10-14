@@ -125,3 +125,11 @@ class Backtester:
         plt.title("Portfolio Value Over Time")
         plt.legend()
 
+        plt.subplot(2, 1, 2)
+        plt.plot(daily_returns, label="Daily Returns", color="orange")
+        plt.title("Daily Returns Over Time")
+        plt.legend()
+
+        plt.tight_layout()
+        plt.show()
+
