@@ -106,3 +106,7 @@ class Backtester:
         sortino_ratio = calculate_sortino_ratio(daily_returns, annualized_return)
         max_drawdown = calculate_maximum_drawdown(portfolio_values)
 
+        print(f"Final Portfolio Value: {portfolio_values.iloc[-1]:.2f}")
+        print(f"Total return: {total_return * 100:.2f}%")
+        print(f"Annualized return: {annualized_return * 100:.2f}%")
+
