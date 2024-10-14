@@ -19,3 +19,12 @@ def calculate_sharpe_ratio(annualized_return, annualized_volatility, risk_free_r
         return (annualized_return - risk_free_rate) / annualized_volatility
     except RuntimeError:
         return np.nan
+
+def calculate_sortino_ratio(daily_returns, annualized_return, risk_free_rate=0):
+    negative_returns = daily_returns[daily_returns < 0]
+    downside_volatility = negative_returns.std() * np.sqrt(252)
+    return (
+        (annualized_return - risk_free_rate) / downside_volatility
+        if downside_volatility > 0
+        else np.nan
+    )
