@@ -107,6 +107,10 @@ class Backtester:
         max_drawdown = calculate_maximum_drawdown(portfolio_values)
 
         print(f"Final Portfolio Value: {portfolio_values.iloc[-1]:.2f}")
-        print(f"Total return: {total_return * 100:.2f}%")
-        print(f"Annualized return: {annualized_return * 100:.2f}%")
+        print(f"Total Return: {total_return * 100:.2f}%")
+        print(f"Annualized Return: {annualized_return * 100:.2f}%")
+        print(f"Annualized Volatility: {annualized_volatility * 100:.2f}%")
+        print(f"Sharpe Rato: {sharpe_ratio:.2f}")
+        print(f"Sortino Ratio: {sortino_ratio:.2f}")
+        print(f"Maximum Drawdown: {max_drawdown * 100:.2f}%")
 
