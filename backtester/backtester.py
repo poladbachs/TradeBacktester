@@ -3,6 +3,14 @@ from typing import List, Dict
 
 import pandas as pd
 import matplotlib.pyplot as plt
+from backtester.performance import (
+    calculate_annualized_return,
+    calculate_annualized_volatility,
+    calculate_maximum_drawdown,
+    calculate_sharpe_ratio,
+    calculate_sortino_rvcdatio,
+    calculate_total_return,
+)
 
 class Backtester:
     """Backtester class for backtesting trading strategies."""
@@ -81,5 +89,12 @@ class Backtester:
         if not self.daily_portfolio_values:
             print("No portfolio history to calculate performance")
             return
+
+        portfolio_values = pd.Series(self.daily_portfolio_values)
+        daily_returns = portfolio_values.pct_change().dropna()
+
+        total_return = calculate_total_return(
+            portfolio_values.iloc[-1], self.initial_capital
+        )
 
 
