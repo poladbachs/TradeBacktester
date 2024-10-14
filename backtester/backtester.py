@@ -8,7 +8,7 @@ from backtester.performance import (
     calculate_annualized_volatility,
     calculate_maximum_drawdown,
     calculate_sharpe_ratio,
-    calculate_sortino_rvcdatio,
+    calculate_sortino_ratio,
     calculate_total_return,
 )
 
@@ -110,7 +110,7 @@ class Backtester:
         print(f"Total Return: {total_return * 100:.2f}%")
         print(f"Annualized Return: {annualized_return * 100:.2f}%")
         print(f"Annualized Volatility: {annualized_volatility * 100:.2f}%")
-        print(f"Sharpe Rato: {sharpe_ratio:.2f}")
+        print(f"Sharpe Ratio: {sharpe_ratio:.2f}")
         print(f"Sortino Ratio: {sortino_ratio:.2f}")
         print(f"Maximum Drawdown: {max_drawdown * 100:.2f}%")
 

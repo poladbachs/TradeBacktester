@@ -11,7 +11,7 @@ class Strategy:
         self.signal_logic = signal_logic
 
     def generate_signals(
-        self, data: pd.Dataframe | dict[str, pd.DataFrame]
+        self, data: pd.DataFrame | dict[str, pd.DataFrame]
     ) -> pd.DataFrame | dict[str, pd.DataFrame]:
         """Generate trading signals based on the strategy's indicators and signal logic."""
         if isinstance(data, dict):

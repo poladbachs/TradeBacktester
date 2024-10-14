@@ -1,6 +1,6 @@
 """Performance module for calculating performance metrics."""
 
-import numpy
+import numpy as np
 
 def calculate_total_return(final_portfolio_value, initial_capital):
     """Calculate the total return of the portfolio."""
