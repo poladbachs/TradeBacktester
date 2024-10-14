@@ -77,4 +77,9 @@ class Backtester:
                         len(self.portfolio_history[asset]) - 1
                     ] += self.assets_data[asset]["total_value"]
 
+    def calculate_performance(self, plot: bool = True) -> None:
+        if not self.daily_portfolio_values:
+            print("No portfolio history to calculate performance")
+            return
+
 
