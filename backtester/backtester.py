@@ -97,4 +97,10 @@ class Backtester:
             portfolio_values.iloc[-1], self.initial_capital
         )
 
+        annualized_return = calculate_annualized_return(
+            total_return, len(portfolio_values)
+        )
+
+        annualized_volatility = calculate_annualized_volatility(daily_returns)
+        sharpe_ratio = calculate_sharpe_ratio(annualized_return, annualized_volatility)
 
