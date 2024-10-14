@@ -28,3 +28,7 @@ def calculate_sortino_ratio(daily_returns, annualized_return, risk_free_rate=0):
         if downside_volatility > 0
         else np.nan
     )
+
+def calculate_maximum_drawdown(portfolio_values):
+    drawdown = portfolio_values / portfolio_values.cummax() - 1
+    return drawdown.min()
