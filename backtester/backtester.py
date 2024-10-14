@@ -103,4 +103,6 @@ class Backtester:
 
         annualized_volatility = calculate_annualized_volatility(daily_returns)
         sharpe_ratio = calculate_sharpe_ratio(annualized_return, annualized_volatility)
+        sortino_ratio = calculate_sortino_ratio(daily_returns, annualized_return)
+        max_drawdown = calculate_maximum_drawdown(portfolio_values)
 
