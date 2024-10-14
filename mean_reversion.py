@@ -15,4 +15,9 @@ strategy = Strategy(
         "std_3_upper": lambda row: row["sma_50"] + row["std_3"],
         "std_3_lower": lambda row: row["sma_50"] - row["std_3"],
     },
+    signal_logic=lambda row: (
+        1
+        if row["close"] < row["std_lower"]
+        else -1 if row["close"] > row["std_upper"] else 0
+    ),
 )
