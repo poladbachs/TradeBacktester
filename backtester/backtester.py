@@ -114,3 +114,14 @@ class Backtester:
         print(f"Sortino Ratio: {sortino_ratio:.2f}")
         print(f"Maximum Drawdown: {max_drawdown * 100:.2f}%")
 
+        if plot:
+            self.plot_performance(portfolio_values, daily_returns)
+
+    def plot_performance(self, portfolio_values: Dict, daily_returns: pd.DataFrame):
+        plt.figure(figsize=(10, 6))
+
+        plt.subplot(2, 1, 1)
+        plt.plot(portfolio_values, label="Portfolio Value")
+        plt.title("Portfolio Value Over Time")
+        plt.legend()
+
