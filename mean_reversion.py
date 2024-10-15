@@ -21,3 +21,8 @@ strategy = Strategy(
         else -1 if row["close"] > row["std_upper"] else 0
     ),
 )
+data = strategy.generate_signals(data)
+
+backtester = Backtester()
+backtester.backtest(data)
+backtester.calculate_performance()
