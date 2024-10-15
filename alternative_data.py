@@ -5,3 +5,7 @@ from backtester.strategies import Strategy
 data = DataHandler(symbol="HE").load_data_from_csv("example_data.csv")
 data.head()
 
+strategy = Strategy(
+    indicators={},
+    signal_logic=lambda row: (1 if row["trade_signal_sentiment"] > 0 else -1),
+)
