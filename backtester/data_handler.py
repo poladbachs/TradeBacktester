@@ -34,5 +34,5 @@ class DataHandler:
 
         return data
 
-# data = DataHandler("AAPL").load_data()
-# print(data.head())
+    def load_data_from_csv(self, file_path) -> pd.DataFrame:
+        return pd.read_csv(file_path, index_col="date", parse_dates=True)
