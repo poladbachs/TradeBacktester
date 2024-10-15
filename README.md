@@ -48,6 +48,17 @@ In the **TradeBackTester** project, I implemented:
 
 The SMA Crossover Strategy involves trading two assets based on the crossover of their 20-day and 60-day simple moving averages (SMA). A buy signal is generated when the short-term SMA (20-day) crosses above the long-term SMA (60-day), and a sell signal is generated when the short-term SMA crosses below the long-term SMA.
 
+```python
+# Strategy, indicators and signal logic
+strategy = Strategy(
+    indicators={
+        "sma_20": lambda row: row["close"].rolling(window=20).mean(),
+        "sma_60": lambda row: row["close"].rolling(window=60).mean(),
+    },
+    signal_logic=lambda row: 1 if row["sma_20"] > row["sma_60"] else -1,
+)
+```
+
 #### Output Values:
 - Final Portfolio Value: 11804.58
 - Total Return: 18.05%
@@ -64,7 +75,22 @@ The SMA Crossover Strategy involves trading two assets based on the crossover of
 
 ### 2. **Mean Reversion Strategy**
 
-The Mean Reversion Strategy trades an asset based on its deviation from the rolling 50-day average. If the asset trades more than 3 standard deviations below the rolling mean, it buys, and if it trades more than 3 standard deviations above, it sells.
+The Mean Reversion Strategy trades based on the idea that asset prices will return to their historical average. A buy signal is triggered when the price falls more than 3 standard deviations below the 50-day simple moving average (SMA), indicating potential undervaluation. A sell signal occurs when the price exceeds 3 standard deviations above the SMA, suggesting potential overvaluation. This strategy aims to profit from price corrections toward the mean.
+```python
+strategy = Strategy(
+    indicators={
+        "sma_50": lambda row: row["close"].rolling(window=50).mean(),
+        "std_3": lambda row: row["sma_50"].std() * 3,
+        "std_3_upper": lambda row: row["sma_50"] + row["std_3"],
+        "std_3_lower": lambda row: row["sma_50"] - row["std_3"],
+    },
+    signal_logic=lambda row: (
+        1
+        if row["close"] < row["std_3_lower"]
+        else -1 if row["close"] > row["std_3_upper"] else 0
+    ),
+)
+```
 
 #### Output Values:
 - Final Portfolio Value: 12062.36
@@ -83,6 +109,18 @@ The Mean Reversion Strategy trades an asset based on its deviation from the roll
 ### 3. **Pairs Trading Strategy**
 
 The Pairs Trading Strategy involves simultaneously trading two assets: Netflix (NFLX) and Roku (ROKU). A position is taken when one asset's price moves 5% higher than the other, leveraging real-time price discrepancies without relying on historical data. The strategy aims to identify profitable trading opportunities based on current market conditions by buying the lower-performing asset and selling the higher-performing one until their prices converge.
+```python
+strategy = Strategy(
+    indicators={},
+    signal_logic=lambda row: (
+        1
+        if row["close_NFLX"] > row["close_ROKU"] * 1.05
+        else -1
+        if row["close_NFLX"] < row["close_ROKU"] * 0.95
+        else 0
+    )
+)
+```
 
 #### Output Values:
 - Final Portfolio Value: 19009.57
