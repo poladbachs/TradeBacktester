@@ -24,10 +24,7 @@ data = data.rename(columns={"close_ROKU": "close"})
 data.head()
 
 strategy = Strategy(
-    indicators={
-        "day_5_lookback_NFLX": lambda row: row["close_NFLX"].shift(5),
-        "day_5_lookback_ROKU": lambda row: row["close"].shift(5),
-    },
+    indicators={},
     signal_logic=lambda row: (
         1
         if row["close_NFLX"] > row["close"] * 1.05
