@@ -17,8 +17,8 @@ strategy = Strategy(
     },
     signal_logic=lambda row: (
         1
-        if row["close"] < row["std_lower"]
-        else -1 if row["close"] > row["std_upper"] else 0
+        if row["close"] < row["std_3_lower"]
+        else -1 if row["close"] > row["std_3_upper"] else 0
     ),
 )
 data = strategy.generate_signals(data)
