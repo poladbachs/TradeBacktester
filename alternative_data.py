@@ -1,0 +1,7 @@
+from backtester.data_handler import DataHandler
+from backtester.backtester import Backtester
+from backtester.strategies import Strategy
+
+data = DataHandler(symbol="HE").load_data_from_csv("example_data.csv")
+data.head()
+
