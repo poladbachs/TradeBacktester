@@ -5,13 +5,6 @@ Custom Backtester for Algorithmic Trading Strategies
 
 **TradeBacktester** is a Python-based application designed for backtesting algorithmic trading strategies. It allows users to implement and test various strategies using historical data. The project is modular, with separate components for handling data, strategies, and performance evaluation. The backtesting tool provides insights into trading strategy effectiveness by calculating key performance metrics such as total return, Sharpe ratio, Sortino ratio, and maximum drawdown.
 
-## Features
-
-- **Data Handling**: Load historical equity data from different providers, such as FMP, or from CSV files.
-- **Strategy Flexibility**: Create custom strategies using technical indicators and custom signal logic.
-- **Performance Metrics**: Calculate annualized returns, volatility, Sharpe and Sortino ratios, and maximum drawdown.
-- **Portfolio Simulation**: Simulate trades and calculate portfolio value over time with commission calculations.
-
 ## Technologies Used
 
 - **Python** for back-end logic and data processing.
@@ -21,7 +14,7 @@ Custom Backtester for Algorithmic Trading Strategies
 
 ## What I Did in This Project
 
-In the **TradeBackTester** project, I implemented:
+In the **TradeBacktester** project, I implemented:
 
 - **Data Handler Module**:
   - Utilized OpenBB to load historical equity data and processed it using **Pandas**.
