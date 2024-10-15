@@ -11,7 +11,7 @@ data = DataHandler(symbol=symbol, start_date=start_date, end_date=end_date).load
 strategy = Strategy(
     indicators={
         "sma_50": lambda row: row["close"].rolling(window=50).mean(),
-        "std_3": lambda row: row["close"].rolling(window=50).std() * 3,
+        "std_3": lambda row: row["sma_50"].std() * 3,
         "std_3_upper": lambda row: row["sma_50"] + row["std_3"],
         "std_3_lower": lambda row: row["sma_50"] - row["std_3"],
     },
