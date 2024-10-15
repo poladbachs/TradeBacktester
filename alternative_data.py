@@ -9,3 +9,8 @@ strategy = Strategy(
     indicators={},
     signal_logic=lambda row: (1 if row["trade_signal_sentiment"] > 0 else -1),
 )
+data = strategy.generate_signals(data)
+
+backtester = Backtester()
+backtester.backtest(data)
+backtester.calculate_performance()
