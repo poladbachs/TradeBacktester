@@ -29,8 +29,15 @@ strategy = Strategy(
         "day_5_lookback_ROKU": lambda row: row["close"].shift(5),
     },
     signal_logic=lambda row: (
-        -1
-        if row["close_NFLX"] > row["day_5_lookback_NFLX"] * 1.05
-        else 1 if row["close_NFLX"] < row["day_5_lookback_NFLX"] * 0.95 else 0
-    ),
+        1
+        if row["close_NFLX"] > row["close"] * 1.05
+        else -1
+        if row["close_NFLX"] < row["close"] * 0.95
+        else 0
+    )
 )
+data = strategy.generate_signals(data)
+
+backtester = Backtester()
+backtester.backtest(data)
+backtester.calculate_performance()
