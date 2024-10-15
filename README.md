@@ -68,7 +68,7 @@ strategy = Strategy(
 - Sortino Ratio: 2.06
 - Maximum Drawdown: -12.07%
 
-#### Plot:
+#### SMA Crossover Strategy Plot:
 ![crossover_plot](https://github.com/user-attachments/assets/4eb30cbe-f5d9-4be7-9995-5d7a41eacc92)
 
 ---
@@ -101,7 +101,7 @@ strategy = Strategy(
 - Sortino Ratio: 1.71
 - Maximum Drawdown: -7.19%
 
-#### Plot:
+#### Mean Reversion Strategy Plot:
 ![mean_reversion_plot_std_off](https://github.com/user-attachments/assets/97ba1430-a38c-42e3-b174-056e79b2a9ff)
 
 ---
@@ -131,7 +131,7 @@ strategy = Strategy(
 - Sortino Ratio: 1.10
 - Maximum Drawdown: -51.65%
 
-#### Plot:
+#### Pairs Trading Strategy Plot:
 ![pairs_trade_plot](https://github.com/user-attachments/assets/9ffc1ed0-5a76-4ae1-a901-6719b25cb264)
 
 ---
