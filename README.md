@@ -8,7 +8,7 @@ Custom Backtester for Algorithmic Trading Strategies
 ## Technologies Used
 
 - **Python** for back-end logic and data processing.
-- **OpenBB SDK** for fetching financial data.
+- **OpenBB** for fetching financial data.
 - **Pandas** for data manipulation and analysis.
 - **NumPy** for performance metric calculations.
 - **Matplotlib** for performance visualization and plotting.
