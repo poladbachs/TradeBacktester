@@ -1,3 +1,4 @@
+![ezgif-2-6401445d2c](https://github.com/user-attachments/assets/8031cce3-4ffe-4ccd-89f2-7551ceed39e1)
 # Trade Backtester
 Custom Backtester for Algorithmic Trading Strategies
 
