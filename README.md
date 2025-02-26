@@ -1,9 +1,11 @@
+![ezgif-2-8395672510](https://github.com/user-attachments/assets/8570b918-4779-4604-ae1c-a483be5a803a)
+
 # Trade Backtester
 Custom Backtester for Algorithmic Trading Strategies
 
 ## Project Overview
 
-**TradeBacktester** is a Python-based application designed for backtesting algorithmic trading strategies. It allows users to implement and test various strategies using historical data. The project is modular, with separate components for handling data, strategies, and performance evaluation. The backtesting tool provides insights into trading strategy effectiveness by calculating key performance metrics such as total return, Sharpe ratio, Sortino ratio, and maximum drawdown.
+**TradeBacktester** is a Python-based application designed for backtesting algorithmic trading strategies. The project is modular, with separate components for handling data, strategies, and performance evaluation. The backtesting tool provides insights into trading strategy effectiveness by calculating key performance metrics such as total return, Sharpe ratio, Sortino ratio, and maximum drawdown.
 
 ## Technologies Used
 
